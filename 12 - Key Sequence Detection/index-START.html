@@ -7,6 +7,18 @@
 </head>
 <body>
 <script>
+  const sequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'a', 'b', 'Enter']
+  const keysPressed = [];
+  window.addEventListener('keyup', (e) => {
+    if (keysPressed.length === sequence.length)
+      keysPressed.shift();
+    keysPressed.push(e.key);
+    console.log(keysPressed);
+    if (JSON.stringify(sequence) == JSON.stringify(keysPressed)) {
+      console.log("KONAMI!");
+      cornify_add();
+    }
+  });
 </script>
 </body>
 </html>
